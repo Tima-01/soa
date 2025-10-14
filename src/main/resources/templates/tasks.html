@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+</head>
+<body>
+<h1>Task List</h1>
+<a th:href="@{/task/new}">Create New Task</a>
+
+<div th:each="task : ${tasks}">
+    <h3 th:text="${task.name}">Task Name</h3>
+    <p th:text="${task.description}">Task Description</p>
+    <p>Due Date: <span th:text="${task.dueDate}">Due Date</span></p>
+    <p>Status: <span th:text="${task.completed} ? 'Completed' : 'Pending'">Status</span></p>
+    <hr>
+</div>
+</body>
+</html>
